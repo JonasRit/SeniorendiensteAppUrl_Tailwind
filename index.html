@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <style type="text/tailwindcss">
+            @theme{
+                --color-rot: #db2234;
+                --color-rot-dunkel: #b91c2c;
+                --color-blau-hell: #07546e1c;
+                --color-blau: #07546e;
+                --color-blau-dunkel: #054257;
+                --font-lato: 'Lato', sans-serif;
+            }
+    </style>
+    
+    <title>Document</title>
+</head>
+<body class="font-lato pt-21">
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 transition-all duration-300">
+        <div id="overlay" class="hidden fixed inset-0 bg-black/50 z-40 top-21"></div>
+        <nav class="flex items-center justify-between px-12 h-21 transition-all duration-300" id="main-nav">
+            <a href="#" class="h-full">
+                <img src="./img/SSt StElisabeth gGmbH.png" class="h-full" alt="Logo">
+            </a>
+
+            <div id="dropdown-menu" class="hidden absolute top-21 left-0 w-full bg-white flex-col gap-6 items-center py-6 z-50 lg:static lg:flex lg:flex-row lg:justify-between lg:bg-transparent">
+                <ul class="flex flex-col gap-4 items-center py-2 text-lg lg:flex-row lg:gap-6 lg:ml-auto">
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors">Startseite</li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors">Über uns</li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors">Kontakt</li>
+                </ul>
+
+            </div>
+            <div id="toggle-button" class="lg:hidden">
+                <i class="fa-solid fa-bars fa-lg"></i>  
+            </div>
+        </nav>
+    </header>
+    
+    <section class="relative w-full overflow-hidden">
+  
+        <div id="slider-track" class="flex transition-transform duration-500 ease-in-out">
+            
+            <div class="slide min-w-full relative">
+            <img src="https://picsum.photos/seed/1/1200/600" class="w-full h-[500px] object-cover" alt="Bild 1">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white px-12 py-8">
+                <h2 class="text-3xl font-bold">Überschrift 1</h2>
+                <p class="mt-2 text-lg">Beschreibungstext für das erste Bild.</p>
+            </div>
+            </div>
+
+            <div class="slide min-w-full relative">
+            <img src="https://picsum.photos/seed/2/1200/600" class="w-full h-[500px] object-cover" alt="Bild 2">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white px-12 py-8">
+                <h2 class="text-3xl font-bold">Überschrift 2</h2>
+                <p class="mt-2 text-lg">Beschreibungstext für das zweite Bild.</p>
+            </div>
+            </div>
+
+            <div class="slide min-w-full relative">
+            <img src="https://picsum.photos/seed/3/1200/600" class="w-full h-[500px] object-cover" alt="Bild 3">
+            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white px-12 py-8">
+                <h2 class="text-3xl font-bold">Überschrift 3</h2>
+                <p class="mt-2 text-lg">Beschreibungstext für das dritte Bild.</p>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- Prev / Next Buttons -->
+        <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 flex items-center justify-center rounded-full transition">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 flex items-center justify-center rounded-full transition">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Dots -->
+        <div id="dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <button class="dot w-3 h-3 rounded-full bg-white opacity-50 transition" data-index="0"></button>
+            <button class="dot w-3 h-3 rounded-full bg-white opacity-50 transition" data-index="1"></button>
+            <button class="dot w-3 h-3 rounded-full bg-white opacity-50 transition" data-index="2"></button>
+        </div>
+
+    </section>
+
+    <!--hier geht inhalt los -->
+    <section class="max-w-6xl mx-auto pt-20 px-6">
+        <p class="text-xs font-semibold tracking-widest text-gray-700 uppercase mb-4">
+            Tagespflege St. Elisabeth in Oberkirch
+        </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+        <div>
+            <h2 class="text-3xl font-bold text-rot leading-snug mb-6">
+                Gemeinsam den Tag verbringen - 
+                abends wieder zu Hause sein
+            </h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                    Professionelle Pflege mit Herz. In der Tagespflege St. Elisabeth in Oberkirch begleiten wir Ihre Angehörigen 
+                    durch einen abwechslungsreichen Tag — sicher, liebevoll und individuell. ???
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-4 mt-6">
+                <a href="#kontakt" class="bg-rot text-white text-sm font-semibold px-6 py-3 rounded hover:bg-rot-dunkel transition-colors">
+                    Kostenfreien Schnuppertag buchen
+                </a>
+                <a href="#angebot" class="border border-gray-300 text-gray-700 text-sm font-semibold px-6 py-3 rounded hover:border-rot hover:text-rot transition-colors">
+                    Unser Angebot ansehen
+                </a>
+            </div>
+        </div>
+
+        <div class="flex gap-4 items-stretch justify-end">
+            <div class="inline-block bg-white p-3 pb-10 shadow-xl -rotate-3">
+                <img src="./img/iStock_Cecilie_Arcurs_2.webp" 
+                    class="w-72 h-72 object-cover"
+                    alt="Unsere Einrichtung">
+            </div>
+        </div>
+        
+
+    </div>
+    
+</section>
+
+
+ 
+ 
+    <!-- BILD-SEKTION — Text links, Bild rechts -->
+    <section class="max-w-6xl mx-auto mt-20 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+ 
+            <div>
+                <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-3">
+                    Unsere Einrichtung
+                </p>
+                <h2 class="text-3xl text-gray-900 leading-snug mb-6">
+                    Ein Zuhause auf Zeit —<br>mitten in Oberkirch. ???
+                </h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                        Unsere Tagespflege St. Elisabeth bietet Senioren einen sicheren,
+                        liebevollen Rahmen für den Tag. Moderne Räumlichkeiten, regionale
+                        Küche und ein engagiertes Team erwarten Sie.???
+                    </p>
+                    <p>
+                        Wir holen Sie morgens ab und bringen Sie abends wieder nach Hause —
+                        auch Rollstuhltransporte sind möglich.???
+                    </p>
+                </div>
+            </div>
+ 
+            <div class="relative">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-rot rounded"></div>
+                <div class="h-72 ml-4 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/seed/pflege/800/600"
+                     class="w-full h-full object-cover"
+                     alt="Tagespflege St. Elisabeth Oberkirch">
+                </div>
+                
+            </div>
+ 
+        </div>
+    </section>
+ 
+ 
+    <!-- TEAL-BLOCK — 3 Säulen -->
+    <section id="angebot" class="mt-20 bg-blau py-10 ">
+ 
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl text-white text-center font-bold mb-2">
+                Das Angebot auf einen Blick
+            </h2>
+            <p class="text-center text-white/80 italic text-sm mb-12">
+                Drei Säulen für Ihre Zufriedenheit
+            </p>
+ 
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+ 
+                <div class="bg-blau-dunkel rounded-lg p-8 mx-6">
+                    <h3 class="text-white font-semibold text-lg mb-4 pb-4 border-b border-white/20">
+                        Lebensqualität
+                    </h3>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Wir bieten einen abwechslungsreichen Tagesablauf in angenehmer Atmosphäre
+                    </p>
+                </div>
+ 
+                <div class="bg-blau-dunkel rounded-lg p-8 mx-6">
+                    <h3 class="text-white font-semibold text-lg mb-4 pb-4 border-b border-white/20">
+                        Gemeinschaft erleben 
+                    </h3>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Soziale Kontakte helfen der Vereinsamung entgegen zu wirken
+                    </p>
+                </div>
+ 
+                <div class="bg-blau-dunkel rounded-lg p-8 mx-6">
+                    <h3 class="text-white font-semibold text-lg mb-4 pb-4 border-b border-white/20">
+                        Entlastungsangebot 
+                    </h3>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Verlässliche Entlassung mit planbaren Freiräumen für die pflegemden Angehörigen 
+                    </p>
+                </div>
+ 
+            </div>
+        </div>
+    </section>
+    <section class="max-w-6xl mx-auto mt-20 px-6">
+        <div class="grid grid-cols-1  items-center">
+ 
+            <div>
+                <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-3">
+                    Angebot
+                </p>
+                <h2 class="text-3xl text-gray-900 leading-snug mb-6">
+                    Was dürfen Sie sich unter dem Tagespflege-Angebot vorstellen?
+                </h2>
+                <div class="text-gray-700 space-y-4 leading-relaxed">
+                    <p>
+                        In unserer Tagespflege erwartet Sie ein interessanter Tagesablauf mit verschiedenen Angeboten, <br> der auf die Senioren abgestimmt ist 
+                    </p>
+                    <h3>Unser Angebot umfasst Folgendes im Detail:</h3>
+                    <ul class="list-disc list-outside ml-4 space-y-2 max-w-3xl" >
+                        <li>
+                            Wir holen Sie morgens von zu Hause ab und bringen Sie abends wieder nach Hause – auch Rollstuhltransporte sind möglich.
+                        </li>
+                        <li>
+                            In gemütlicher Runde wird das Frühstück, Mittagessen und der Nachmittagskaffee gemeinsam eingenommen. 
+                            Wünsche, Unverträglichkeiten und Diäten berücksichtigen wir gerne.
+                        </li>
+                        <li>
+                            Wir bieten Ihnen Beschäftigungsangebote, die sich an Ihren Fähigkeiten, Bedürfnissen und Ihrer Biografie orientieren, 
+                            wie Zeitungs- und Spielrunden, Singkreis, jahreszeitbezogenes kreatives Gestalten, gemeinsames Backen, 
+                            kulturelle und kirchlich seelsorgerische Angebote, usw...
+                        </li>
+                        <li>Durch die Nutzung der Tagespflege können soziale Kontakte gepflegt werden, 
+                            wobei unsere großzügig konzipierten Räumlichkeiten auch genügend Rückzugsmöglichkeiten bieten.
+                        </li>
+                        <li>
+                            Für die pflegenden Angehörigen bietet unser Angebot eine verlässliche und hochwertige Entlastung und sichert neue Freiräume.
+                        </li>
+                        <li>
+                            Bei uns erleben Sie eine abwechslungsreiche Tagesstruktur in angenehmer Gemeinschaft, die jedem Tag einen besonderen Sinn gibt.
+                        </li>
+                        <li>
+                            Unser Leitgedanke lautet: „Tagsüber umsorgt – abends wieder Zuhause"
+                        </li>
+                    </ul>
+                </div>
+            </div>
+ 
+            
+ 
+        </div>
+    </section>
+ 
+ 
+    <!-- ZWEITES BILD — Bild links, Text rechts -->
+    <section class="max-w-6xl mx-auto pt-20 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+ 
+            <div class="relative">
+                <div class="absolute right-0 top-0 h-72 bottom-0 w-1 bg-rot rounded"></div>
+                <div class="h-72 mr-4 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/seed/pflege/800/600"
+                     class="w-full h-full object-cover"
+                     alt="Tagespflege St. Elisabeth Oberkirch">
+                     
+                </div>
+                <div class="font-normal italic font- text-gray-500">
+                    Geschäftsführer
+                </div>
+                <div class="text-gray-900">
+                    Thomas Ritter
+                </div>
+            </div>
+ 
+            <div>
+                <h2 class="text-3xl text-gray-900 leading-snug mb-6">
+                    Was wir unter „Pflege, die passt!" konkret verstehen?
+                </h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                        „Nichts ist so individuell wie der Mensch selbst. Entsprechend unterschiedlich 
+                        ist auch der jeweilige Unterstützungsbedarf im Alter und bei Pflegebedürftigkeit. 
+                        Genau deshalb braucht es einen verlässlichen Partner an der Seite, der flexibel auf 
+                        diese Veränderungen eingeht und genau die Hilfe bietet, die in der jeweiligen Situation gebraucht wird. 
+                        Dies zeichnet uns als Ihren starken Versorgungspartner aus, weil wir uns durch unsere Angebotsvielfalt 
+                        allen individuellen Bedarfen anpassen können."
+                    </p>
+                </div>
+            </div>
+ 
+        </div>
+    </section>
+ 
+ 
+    <section class="my-16">
+        <div class="max-w-2xl  mx-5 md:mx-auto rounded-2xl p-5 md:px-10 md:py-12 relative shadow-xl bg-blau-hell">
+
+            <div class="text-center text-xl">
+                <h2 class="font-bold text-gray-900 mb-3">
+                    Wir beraten Sie gerne!
+                </h2>
+                <p class="text-500 text-sm mb-2">Melden Sie sich unter:</p>
+                <div class="inline-grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 text-left">
+                    <span class="text-gray-700 font-bold">Tel.:</span>
+                    <a class="text-blau font-bold" href="tel:+497802803614">07802 / 80361-40</a>
+                    <span class="text-gray-700 font-bold">Mail:</span>
+                    <a class="text-blau font-bold" href="mailto:kontakt@TP-Haus.de">kontakt@TP-Haus.de</a>
+                </div>
+                <p class="text-gray-400 italic text-sm pt-2">Wir beraten Sie persönlich und unverbindlich.</p>
+            </div>
+
+            <img src="./img/SSt StElisabeth gGmbH.png"
+                class="h-14 mx-auto mt-6 block md:absolute md:bottom-4 md:right-6 md:h-14 md:mx-0 md:mt-0"
+                alt="Logo">
+        </div>
+    </section>
+ 
+ 
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-100 bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+ 
+            <div class="flex items-center gap-4">
+                <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-rot transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-rot transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+            </div>
+ 
+            <div class="flex items-center gap-8 text-basetext-gray-700">
+                <a href="mailto:kontakt@TP-Haus.de" class="hover:text-rot">kontakt@TP-Haus.de</a>
+                <a href="tel:+497802803614" class="hover:text-rot">07802 / 80361-40</a>
+            </div>
+        </div>
+ 
+        <div class="border-t border-gray-50 max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-sm text-gray-400">
+            <div class="flex gap-6">
+                <a href="/impressum" class="hover:text-rot">Impressum</a>
+                <a href="/datenschutz" class="hover:text-rot">Datenschutz</a>
+            </div>
+            <p>© Seniorendienste Appenweier & Urloffen gGmbH</p>
+        </div>
+    </footer>
+ 
+    
+    
+</body>
+</html>
