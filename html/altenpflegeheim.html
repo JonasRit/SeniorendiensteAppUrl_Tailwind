@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/index.js" defer></script>
+    <script src="../js/index.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/allgemein.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
      <style type="text/tailwindcss">
@@ -26,13 +26,13 @@
         <div id="overlay" class="hidden fixed inset-0 bg-black/50 z-40 top-21"></div>
         <nav class="flex items-center justify-between px-12 h-21 transition-all duration-300" id="main-nav">
             <a href="#" class="h-full">
-                <img src="./img/SSt StElisabeth gGmbH.png" class="h-full" alt="Logo">
+                <img src="../img/SSt StElisabeth gGmbH.png" class="h-full" alt="Logo">
             </a>
 
             <div id="dropdown-menu" class="hidden absolute top-21 left-0 w-full bg-white flex-col gap-6 items-center py-6 z-50 lg:static lg:flex lg:flex-row lg:justify-between lg:bg-transparent">
                 <ul class="flex flex-col gap-4 items-center py-2 text-lg lg:flex-row lg:gap-6 lg:ml-auto">
-                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors"><a href="" class="h-full">Startseite</a></li>
-                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors"><a href="./angebot.html" class="h-full">Angebote</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors"><a href="../index.html" class="h-full">Startseite</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors nav-active"><a href="./angebot.html" class="h-full">Angebote</a></li>
                     <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors"><a href="#" class="h-full">Job</a></li>
                     <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors"><a href="#" class="h-full">Downloads</a></li>
                     <li class="border-b-2 border-transparent pb-0.5 hover:border-[#db2234] transition-colors"><a href="#" class="h-full">Ansprechpartner</a></li>
@@ -47,274 +47,415 @@
         </nav>
     </header>
     
-    <section class="max-w-6xl mx-auto pt-20 px-6">
-        <p class="text-xs font-semibold tracking-widest text-gray-700 uppercase mb-4">
-            Seniorendiensten Appenweier &amp; Urloffen gGmbH
+    <!-- ============================================
+         PAGE HEADER — Bild mit Overlay-Text
+         ============================================ -->
+    <section class="relative w-full h-[400px] overflow-hidden">
+
+        <img src="https://picsum.photos/seed/stmartin/1400/600"
+             alt="Altenpflegeheim St. Martin Appenweier"
+             class="w-full h-full object-cover">
+
+        <!-- bg-black/40 = schwarzes Overlay mit 40% Deckkraft -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 px-12 py-10">
+            <div class="max-w-6xl mx-auto">
+
+                <a href="./angebot.html"
+                   class="inline-flex items-center gap-2 text-white/80 text-sm mb-4
+                          hover:text-white transition-colors duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Zurück zu den Angeboten
+                </a>
+
+                <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+                    Altenpflegeheim St. Martin
+                </h1>
+                <p class="text-white/80 text-lg mt-2 italic">
+                    Pflege die passt!
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         EINLEITUNG — Zitat + Polaroid-Bild
+         ============================================ -->
+    <section class="max-w-6xl mx-auto pt-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+            <div>
+                <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-4">
+                    Stationäre Pflege
+                </p>
+                <h2 class="text-3xl font-bold text-blau-dunkel leading-snug mb-6">
+                    Jeder wünscht sich möglichst selbstbestimmt in der
+                    gewohnten Umgebung alt zu werden.
+                </h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                        In vielen Fällen lässt sich die Versorgung pflege- oder
+                        betreuungsbedürftiger Menschen lange Zeit zu Hause sicherstellen.
+                        Oft durch die Unterstützung von professioneller Hilfe, wie bspw.
+                        dem ambulanten Pflegedienst der Sozialstation St. Elisabeth.
+                    </p>
+                    <p>
+                        Irgendwann kommt jedoch fast zwangsläufig ein Zeitpunkt, ab dem
+                        die Pflege zu Hause Betroffene, Angehörige und andere Pflegepersonen
+                        vor zu große Herausforderungen und Belastungen stellt, denen sie
+                        sich nicht mehr gewachsen fühlen.
+                    </p>
+                    <p>
+                        Zur kurzzeitigen Entlastung können wir Kurzzeitpflegeplätze zur
+                        Verfügung stellen – zur dauerhaften Versorgung unsere stationären
+                        Dauerpflegeplätze.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Polaroid-Bild wie auf deiner Startseite -->
+            <div class="flex gap-4 items-stretch justify-end">
+                <div class="inline-block bg-white p-3 pb-10 shadow-xl -rotate-3">
+                    <!-- -rotate-3 = 3 Grad gegen den Uhrzeigersinn gedreht -->
+                    <img src="https://picsum.photos/seed/heim1/600/600"
+                         class="w-72 h-72 object-cover"
+                         alt="Eingangsbereich Altenpflegeheim St. Martin">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         PFLEGE — Text links, Bild rechts
+         ============================================ -->
+    <section class="max-w-6xl mx-auto mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+            <div>
+                <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-3">
+                    Unser Pflegeverständnis
+                </p>
+                <h2 class="text-3xl text-gray-900 leading-snug mb-6">
+                    Professionelle Pflege ist so viel mehr
+                    als satt und sauber zu sein.
+                </h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                        Professionelle und ganzheitliche Pflege verhilft zu hoher
+                        Lebensqualität. Dabei bildet das kompetente, geschulte
+                        Pflegepersonal das Rückgrat unserer individuell angepassten
+                        Pflege und Betreuung, die an modernsten Standards orientiert ist.
+                    </p>
+                    <p>
+                        Wir <strong>fördern und fordern die Fähigkeiten</strong> der Bewohner,
+                        um so lange wie möglich eine selbständige Lebensgestaltung
+                        zu ermöglichen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-rot rounded"></div>
+                <div class="h-72 ml-4 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/seed/pflege2/800/600"
+                         class="w-full h-full object-cover"
+                         alt="Pflegekraft im Gespräch mit Bewohnerin">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         BEWOHNERZIMMER — Bild links, Text rechts
+         ============================================ -->
+    <section class="max-w-6xl mx-auto pt-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+            <div class="relative">
+                <div class="absolute right-0 top-0 bottom-0 w-1 bg-rot rounded"></div>
+                <div class="h-72 mr-4 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://picsum.photos/seed/zimmer/800/600"
+                         class="w-full h-full object-cover"
+                         alt="Bewohnerzimmer im Altenpflegeheim">
+                </div>
+            </div>
+
+            <div>
+                <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-3">
+                    Wohnen
+                </p>
+                <h2 class="text-3xl text-gray-900 leading-snug mb-6">
+                    Bewohnerzimmer und Aufenthaltsbereiche
+                </h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                        Die Zimmer sind individuell anpassbar, eigene Möbel können
+                        mitgebracht werden, um eine gemütliche und vertraute
+                        Atmosphäre zu schaffen.
+                    </p>
+                    <p>
+                        Unsere Gemeinschaftsräume, Wintergärten und Sitzgruppen auf den
+                        Wohnbereichen laden zum Verweilen ein und die Cafeteria bietet
+                        genug Platz, um auch eine größere Zahl Gäste zu empfangen und
+                        Feste mit unseren Bewohnern und deren Angehörigen zu feiern.
+                    </p>
+                    <p>
+                        In der Gartenanlage und den Innenhöfen genießen die Bewohner
+                        die zahlreichen Sonnenstunden der Ortenau.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         TEAL-BLOCK — Betreuung + Verpflegung
+         ============================================ -->
+    <section class="mt-20 bg-blau py-16">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl text-white font-bold mb-2">
+                Unser Alltag im Haus
+            </h2>
+            <p class="text-white/70 italic text-sm mb-12">
+                Betreuung, Aktivitäten und Verpflegung
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="bg-blau-dunkel rounded-lg p-8">
+                    <h3 class="text-white font-semibold text-lg mb-4 pb-4 border-b border-white/20">
+                        Betreuungsangebot
+                    </h3>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Unsere Alltagsbegleiter stellen den Bewohnern ein vielfältiges
+                        Programm verschiedener Aktivitäten zur Verfügung. Die Beschäftigung
+                        orientiert sich an den Wünschen, Gewohnheiten und der Biografie
+                        der Bewohner. Unsere regelmäßig stattfindenden Bewohnerfeste
+                        bieten eine tolle Abwechslung.
+                    </p>
+                </div>
+
+                <div class="bg-blau-dunkel rounded-lg p-8">
+                    <h3 class="text-white font-semibold text-lg mb-4 pb-4 border-b border-white/20">
+                        Verpflegung
+                    </h3>
+                    <ul class="space-y-2 text-white/80 text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full shrink-0"></span>
+                            <!-- w-1.5 h-1.5 = 6px roter Punkt als Aufzählung -->
+                            Frühstück
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full shrink-0"></span>
+                            Mittagessen
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full shrink-0"></span>
+                            Nachmittagskaffee &amp; Kuchen
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full shrink-0"></span>
+                            Abendessen
+                        </li>
+                    </ul>
+                    <p class="text-white/60 text-xs mt-4">
+                        Die Mahlzeiten sind an der traditionellen Ernährungsweise der
+                        Region orientiert und auf die Bedürfnisse älterer Menschen abgestimmt.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         FINANZIERUNG
+         ============================================ -->
+    <section class="max-w-6xl mx-auto pt-20>
+        <div class="max-w-3xl">
+
+            <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-3">
+                Finanzierung
+            </p>
+            <h2 class="text-3xl text-gray-900 leading-snug mb-6">
+                Kosten und Finanzierung
+            </h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                    Die Kosten für einen stationären Pflegeplatz setzen sich aus
+                    dem Pflegesatz, den Unterkunfts- und Verpflegungskosten sowie
+                    den Investitionskosten zusammen. Die Pflegekasse übernimmt je
+                    nach Pflegegrad einen Teil der pflegebedingten Kosten.
+                </p>
+                <p>
+                    Reichen die eigenen Mittel nicht aus, kann ein Antrag auf
+                    „Hilfe zur Pflege" beim Ortenaukreis gestellt werden.
+                </p>
+            </div>
+            <a href="https://www.ortenaukreis.de/Landkreis-Verwaltung/Gesundheit-Sicherheit-/Pflegest%C3%BCtzpunkt-Ortenaukreis/Hilfe-zur-Pflege-Sozialhilfe-/"
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-blau
+                      hover:text-blau-dunkel transition-colors duration-200">
+                Antrag Hilfe zur Pflege (Ortenaukreis)
+                <!-- Externes-Link-Icon -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         KURZZEITPFLEGE-RECHNER
+         ============================================ -->
+    <section class="max-w-6xl mx-auto pt-20">
+
+        <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-3">
+            Berechnung
         </p>
-        
-        <div class="max-w-5xl">
-    
-        <!-- Sektions-Header -->
-        <h2 class="text-4xl font-bold text-blau-dunkel leading-tight">
-            Unsere Leistungen
+        <h2 class="text-3xl text-gray-900 leading-snug mb-2">
+            Kurzzeitpflege-Rechner
         </h2>
-        <p class="mt-3 text-lg text-gray-500 max-w-xl mb-14">
-            Von der stationären Pflege bis zur Unterstützung im Alltag —
-            alles aus einer Hand.
+        <p class="text-gray-500 mb-8 max-w-2xl">
+            Berechnen Sie den voraussichtlichen Eigenanteil für
+            einen Kurzzeitpflegeaufenthalt.
         </p>
-    
-        <!-- Karten-Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-    
-    
-            <!-- ===== KARTE 1: Stationäre Pflege ===== -->
-            <a href="#"
-            class="group bg-white rounded-lg overflow-hidden
-                    shadow-sm hover:shadow-lg
-                    hover:-translate-y-1
-                    transition-all duration-300">
-            <!-- overflow-hidden = Bild ragt nicht über rounded-lg hinaus -->
-    
-            <!-- Bild-Bereich -->
-            <div class="aspect-[16/9] bg-grau-platzhalter relative overflow-hidden">
-                <!-- aspect-[16/9] = Seitenverhältnis 16:9 (breiter als 4:3, passt besser zu Karten) -->
-                <!-- bg-grau-platzhalter = Hintergrundfarbe solange kein Bild da ist -->
-    
-                <!--
-                SPÄTER: Ersetze diesen ganzen <div> Inhalt mit:
-                <img src="dein-bild.jpg" alt="Beschreibung"
-                    class="w-full h-full object-cover
-                            group-hover:scale-105 transition-transform duration-500">
-    
-                object-cover = Bild füllt den Container und wird ggf. beschnitten
-                group-hover:scale-105 = sanfter Zoom bei Hover über die ganze Karte
-                -->
-    
-                <!-- Platzhalter-Icon (wird durch <img> ersetzt) -->
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-                <!-- absolute inset-0 = füllt den gesamten Container -->
-                <!-- flex items-center justify-center = zentriert horizontal + vertikal -->
-                <svg class="w-10 h-10 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <!-- opacity-40 = 40% Deckkraft, sehr dezent -->
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0
-                            012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0
-                            00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="text-xs opacity-40">Bild einfügen</span>
+
+        <div class="bg-grau-hell rounded-lg p-8 max-w-2xl">
+
+            <!-- Datum Von / Bis -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label for="datum-von" class="block text-sm font-semibold text-gray-700 mb-2">Von:</label>
+                    <input type="date" id="datum-von"
+                           class="w-full border border-grau-linie rounded px-4 py-2.5 text-sm
+                                  focus:outline-none focus:border-blau focus:ring-1 focus:ring-blau
+                                  transition-colors">
+                    <!-- focus:ring-1 focus:ring-blau = Teal-Glow bei Fokus -->
+                </div>
+                <div>
+                    <label for="datum-bis" class="block text-sm font-semibold text-gray-700 mb-2">Bis:</label>
+                    <input type="date" id="datum-bis"
+                           class="w-full border border-grau-linie rounded px-4 py-2.5 text-sm
+                                  focus:outline-none focus:border-blau focus:ring-1 focus:ring-blau
+                                  transition-colors">
                 </div>
             </div>
-    
-            <!-- Text-Bereich -->
-            <div class="p-7 border-l-4 border-blau">
-                <!-- p-7 = Innenabstand 1.75rem rundum -->
-    
-                <span class="inline-block text-xs font-semibold text-blau uppercase
-                            tracking-widest mb-3">
-                Vollstationär
-                </span>
-    
-                <h3 class="text-xl font-bold text-blau-dunkel mb-2
-                        group-hover:text-blau transition-colors duration-300">
-                Altenpflegeheim St. Martin
-                </h3>
-    
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                Rund-um-die-Uhr-Betreuung in familiärer Atmosphäre. Unser
-                Fachpersonal arbeitet nach modernsten Pflegestandards — individuell
-                und aktivierend.
-                </p>
-    
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blau">
-                Mehr erfahren
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5l7 7-7 7"/>
-                </svg>
-                </span>
-            </div>
-            </a>
-    
-    
-            <!-- ===== KARTE 2: Kurzzeitpflege ===== -->
-            <a href="#"
-            class="group bg-white rounded-lg overflow-hidden
-                    shadow-sm hover:shadow-lg
-                    hover:-translate-y-1
-                    transition-all duration-300">
-    
-            <div class="aspect-[16/9] bg-grau-platzhalter relative overflow-hidden">
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-                <svg class="w-10 h-10 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0
-                            012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0
-                            00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="text-xs opacity-40">Bild einfügen</span>
+
+            <!-- Pflegegrad-Buttons -->
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-3">Wähle Pflegegrad:</label>
+                <div class="flex gap-3">
+                    <!-- peer hidden = Radio versteckt, peer-checked: stylt das Geschwister-<span> -->
+                    <label class="cursor-pointer">
+                        <input type="radio" name="pflegegrad" value="2" class="peer hidden">
+                        <span class="inline-block px-5 py-2.5 rounded border border-grau-linie text-sm
+                                     font-medium text-gray-700 bg-white
+                                     peer-checked:bg-blau peer-checked:text-white peer-checked:border-blau
+                                     hover:border-blau/50 transition-all duration-200">2</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="pflegegrad" value="3" class="peer hidden">
+                        <span class="inline-block px-5 py-2.5 rounded border border-grau-linie text-sm
+                                     font-medium text-gray-700 bg-white
+                                     peer-checked:bg-blau peer-checked:text-white peer-checked:border-blau
+                                     hover:border-blau/50 transition-all duration-200">3</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="pflegegrad" value="4" class="peer hidden">
+                        <span class="inline-block px-5 py-2.5 rounded border border-grau-linie text-sm
+                                     font-medium text-gray-700 bg-white
+                                     peer-checked:bg-blau peer-checked:text-white peer-checked:border-blau
+                                     hover:border-blau/50 transition-all duration-200">4</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="pflegegrad" value="5" class="peer hidden">
+                        <span class="inline-block px-5 py-2.5 rounded border border-grau-linie text-sm
+                                     font-medium text-gray-700 bg-white
+                                     peer-checked:bg-blau peer-checked:text-white peer-checked:border-blau
+                                     hover:border-blau/50 transition-all duration-200">5</span>
+                    </label>
                 </div>
             </div>
-    
-            <div class="p-7 border-l-4 border-blau">
-                <span class="inline-block text-xs font-semibold text-blau uppercase
-                            tracking-widest mb-3">
-                Vorübergehend
-                </span>
-                <h3 class="text-xl font-bold text-blau-dunkel mb-2
-                        group-hover:text-blau transition-colors duration-300">
-                Kurzzeit- &amp; Verhinderungspflege
-                </h3>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                Pflege auf Zeit — bei Urlaub, Krankheit oder nach einem
-                Krankenhausaufenthalt. Gleiche Leistungen wie in der
-                vollstationären Pflege.
-                </p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blau">
-                Mehr erfahren
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5l7 7-7 7"/>
-                </svg>
-                </span>
-            </div>
-            </a>
-    
-    
-            <!-- ===== KARTE 3: Tagespflege ===== -->
-            <a href="#"
-            class="group bg-white rounded-lg overflow-hidden
-                    shadow-sm hover:shadow-lg
-                    hover:-translate-y-1
-                    transition-all duration-300">
-    
-            <div class="aspect-[16/9] bg-grau-platzhalter relative overflow-hidden">
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-                <svg class="w-10 h-10 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0
-                            012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0
-                            00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="text-xs opacity-40">Bild einfügen</span>
+
+            <!-- Pflegeleistungen ja/nein -->
+            <div class="mb-8">
+                <label class="block text-sm font-semibold text-gray-700 mb-3">
+                    Nehmen Sie bereits Pflegeleistungen in Anspruch?
+                </label>
+                <div class="flex gap-3">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="leistungen" value="ja" class="peer hidden">
+                        <span class="inline-block px-5 py-2.5 rounded border border-grau-linie text-sm
+                                     font-medium text-gray-700 bg-white
+                                     peer-checked:bg-blau peer-checked:text-white peer-checked:border-blau
+                                     hover:border-blau/50 transition-all duration-200">Ja</span>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="leistungen" value="nein" class="peer hidden">
+                        <span class="inline-block px-5 py-2.5 rounded border border-grau-linie text-sm
+                                     font-medium text-gray-700 bg-white
+                                     peer-checked:bg-blau peer-checked:text-white peer-checked:border-blau
+                                     hover:border-blau/50 transition-all duration-200">Nein</span>
+                    </label>
                 </div>
             </div>
-    
-            <div class="p-7 border-l-4 border-blau">
-                <span class="inline-block text-xs font-semibold text-blau uppercase
-                            tracking-widest mb-3">
-                Teilstationär
-                </span>
-                <h3 class="text-xl font-bold text-blau-dunkel mb-2
-                        group-hover:text-blau transition-colors duration-300">
-                Tagespflege
-                </h3>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                Tagsüber Gemeinschaft, aktivierende Betreuung und frische
-                Mahlzeiten aus der eigenen Küche — abends zurück
-                in die vertraute Umgebung.
+
+            <!-- Button -->
+            <button id="btn-rechnen"
+                    class="bg-rot text-white text-sm font-semibold px-8 py-3 rounded
+                           hover:bg-rot-dunkel transition-colors duration-200">
+                Berechnen
+            </button>
+
+            <!-- Ergebnis (hidden = wird per JS eingeblendet) -->
+            <div id="rechner-ergebnis" class="hidden mt-6 p-6 bg-white rounded border border-grau-linie">
+                <p class="text-sm text-gray-500 mb-1">Voraussichtlicher Eigenanteil:</p>
+                <p class="text-2xl font-bold text-blau-dunkel" id="ergebnis-betrag">— €</p>
+                <p class="text-xs text-gray-400 mt-2">
+                    Dies ist eine unverbindliche Schätzung. Die tatsächlichen Kosten
+                    können abweichen. Sprechen Sie uns gerne an.
                 </p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blau">
-                Mehr erfahren
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5l7 7-7 7"/>
-                </svg>
-                </span>
             </div>
-            </a>
-    
-    
-            <!-- ===== KARTE 4: Wohngemeinschaft ===== -->
-            <a href="#"
-            class="group bg-white rounded-lg overflow-hidden
-                    shadow-sm hover:shadow-lg
-                    hover:-translate-y-1
-                    transition-all duration-300">
-    
-            <div class="aspect-[16/9] bg-grau-platzhalter relative overflow-hidden">
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-                <svg class="w-10 h-10 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0
-                            012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0
-                            00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="text-xs opacity-40">Bild einfügen</span>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         KONTAKT-BOX (identisch mit deiner Startseite)
+         ============================================ -->
+    <section class="my-16">
+        <div class="max-w-2xl mx-5 md:mx-auto rounded-2xl p-5 md:px-10 md:py-12 relative shadow-xl bg-blau-hell">
+            <div class="text-center text-xl">
+                <h2 class="font-bold text-gray-900 mb-3">
+                    Fragen zum Altenpflegeheim?
+                </h2>
+                <p class="text-500 text-sm mb-2">Melden Sie sich unter:</p>
+                <div class="inline-grid grid-cols-[auto_1fr] gap-x-3 gap-y-2 text-left">
+                    <span class="text-gray-700 font-bold">Tel.:</span>
+                    <a class="text-blau font-bold" href="tel:+4978059152-0">07805 / 9152 - 0</a>
+                    <span class="text-gray-700 font-bold">Mail:</span>
+                    <a class="text-blau font-bold" href="mailto:Info@SD-AppUrl.de">Info@SD-AppUrl.de</a>
                 </div>
+                <p class="text-gray-400 italic text-sm pt-2">Wir beraten Sie persönlich und unverbindlich.</p>
             </div>
-    
-            <div class="p-7 border-l-4 border-blau">
-                <span class="inline-block text-xs font-semibold text-blau uppercase
-                            tracking-widest mb-3">
-                Ambulant betreut
-                </span>
-                <h3 class="text-xl font-bold text-blau-dunkel mb-2
-                        group-hover:text-blau transition-colors duration-300">
-                Betreute Wohngemeinschaft
-                </h3>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                Selbstbestimmt in kleiner Gruppe leben — im umgebauten Pfarrhaus
-                Urloffen mit 18 Plätzen in modernen Räumlichkeiten und
-                professioneller Unterstützung.
-                </p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blau">
-                Mehr erfahren
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5l7 7-7 7"/>
-                </svg>
-                </span>
-            </div>
-            </a>
-    
-    
-            <!-- ===== KARTE 5: Essen auf Rädern ===== -->
-            <a href="#"
-            class="group bg-white rounded-lg overflow-hidden
-                    shadow-sm hover:shadow-lg
-                    hover:-translate-y-1
-                    transition-all duration-300">
-    
-            <div class="aspect-[16/9] bg-grau-platzhalter relative overflow-hidden">
-                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-                <svg class="w-10 h-10 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0
-                            012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0
-                            00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                <span class="text-xs opacity-40">Bild einfügen</span>
-                </div>
-            </div>
-    
-            <div class="p-7 border-l-4 border-blau">
-                <span class="inline-block text-xs font-semibold text-blau uppercase
-                            tracking-widest mb-3">
-                Häusliche Versorgung
-                </span>
-                <h3 class="text-xl font-bold text-blau-dunkel mb-2
-                        group-hover:text-blau transition-colors duration-300">
-                Essen auf Rädern
-                </h3>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                Täglich frisch gekochte Mahlzeiten aus unserer hauseigenen
-                Küche — mit regionalen Zutaten, direkt zu Ihnen nach Hause
-                geliefert.
-                </p>
-                <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-blau">
-                Mehr erfahren
-                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5l7 7-7 7"/>
-                </svg>
-                </span>
-            </div>
-            </a>
+            <img src="./img/SSt StElisabeth gGmbH.png"
+                 class="h-14 mx-auto mt-6 block md:absolute md:bottom-4 md:right-6 md:h-14 md:mx-0 md:mt-0"
+                 alt="Logo">
         </div>
     </section>
 
