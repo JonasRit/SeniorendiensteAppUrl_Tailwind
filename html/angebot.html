@@ -272,7 +272,7 @@
             </div>
             </a>
     
-    
+            
             <!-- ===== KARTE 5: Essen auf Rädern ===== -->
             <a href="#"
             class="group bg-white rounded-lg overflow-hidden
@@ -292,7 +292,7 @@
                 </div>
             </div>
     
-            <div class="p-7 border-l-4 border-blau">
+            <div class="p-7 border-l-4 border-blau flex-1 flex flex-col">
                 <span class="inline-block text-xs font-semibold text-blau uppercase
                             tracking-widest mb-3">
                 Häusliche Versorgung
@@ -315,6 +315,43 @@
                 </svg>
                 </span>
             </div>
+            </a>
+
+             <!-- Kachel: Lieferservice Kindergärten & Schulen -->
+            <a href="./lieferservice-kita.html"
+            class="flex flex-col h-full bg-white rounded-lg shadow-md
+                    overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
+                <!-- flex flex-col h-full = Karte füllt volle Höhe, damit border-l bis unten geht -->
+
+                <!-- Bild -->
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img src="https://picsum.photos/seed/lieferservice/600/400"
+                        class="w-full h-full object-cover"
+                        alt="Lieferservice für Kindergärten und Schulen">
+                </div>
+
+                <!-- Text -->
+                <div class="p-6 flex-1 flex flex-col border-l-4 border-blau">
+                    <!-- flex-1 = Text-Bereich wächst, damit der Pfeil immer unten steht -->
+                    <p class="text-xs font-semibold tracking-widest text-rot uppercase mb-2">
+                        Gemeinschaftsverpflegung
+                    </p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">
+                        Lieferservice für Kindergärten und Schulen
+                    </h3>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
+                        Ca. 650 frische Mittagessen pro Tag — regional,
+                        saisonal und auf besondere Ernährungsbedürfnisse abgestimmt.
+                    </p>
+
+                    <!-- Pfeil unten -->
+                    <span class="inline-flex items-center gap-1 text-sm font-semibold text-blau">
+                        Mehr erfahren
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </div>
             </a>
         </div>
     </section>
