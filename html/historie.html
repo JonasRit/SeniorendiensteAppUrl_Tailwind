@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historie | Seniorendienste Appenweier &amp; Urloffen</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style type="text/tailwindcss">
+        @theme {
+            --color-rot: #db2234;
+            --color-rot-dunkel: #b91c2c;
+            --color-blau-hell: #07546e1c;
+            --color-blau: #07546e;
+            --color-blau-dunkel: #054257;
+            --font-lato: 'Lato', sans-serif;
+        }
+    </style>
+    <style>
+        /* Timeline: Scrollbar verstecken */
+        .timeline-scroll {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .timeline-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        /* Karten-Animation */
+        .milestone-card {
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .milestone-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Verbindungslinie Dot zur Karte */
+        .connector-line {
+            width: 2px;
+            height: 0;
+            transition: height 0.3s ease;
+        }
+        .connector-line.active {
+            height: 40px;
+        }
+        /* Dreieck-Pfeil oben an der Karte */
+        .card-arrow {
+            width: 12px;
+            height: 12px;
+            transform: rotate(45deg);
+            margin-top: -6px;
+        }
+    </style>
+</head>
+<body class="font-lato text-gray-700">
+
+    <!-- ============================================
+         HEADER / NAVIGATION
+         ============================================ -->
+    <header class="bg-white">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Seniorendienste Appenweier &amp; Urloffen"
+                     class="h-20 max-w-none">
+                     <!-- max-w-none = verhindert Logo-Quetschung durch Tailwind Preflight -->
+            </a>
+            <div id="nav-menu" class="hidden absolute top-full left-0 w-full bg-white flex-col gap-6 items-center py-6 z-50 lg:static lg:flex lg:flex-row lg:justify-between lg:bg-transparent">
+                <ul class="flex flex-col gap-4 items-center py-2 text-lg lg:flex-row lg:gap-6 lg:ml-auto">
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors"><a href="../index.html">Startseite</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors"><a href="./angebot.html">Angebote</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors"><a href="#">Job</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors"><a href="#">Downloads</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors"><a href="#">Ansprechpartner</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors nav-active"><a href="./historie.html">Historie</a></li>
+                    <li class="border-b-2 border-transparent pb-0.5 hover:border-rot transition-colors"><a href="#">Aktuelles</a></li>
+                </ul>
+            </div>
+            <div id="toggle-button" class="lg:hidden cursor-pointer">
+                <i class="fa-solid fa-bars fa-lg"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         PAGE HEADER
+         ============================================ -->
+    <section class="relative w-full h-[400px] overflow-hidden">
+        <!-- Platzhalter: src mit deinem Header-Bild ersetzen -->
+        <img src="../img/historie-header.jpg" alt="Seniorendienste Geschichte"
+             class="w-full h-full object-cover">
+        <!-- Dunkles Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20"></div>
+        <!-- Text -->
+        <div class="absolute bottom-0 left-0 right-0 px-6 pb-12">
+            <div class="max-w-6xl mx-auto">
+                <a href="../index.html" class="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm mb-4 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Zur&uuml;ck zur Startseite
+                </a>
+                <h1 class="text-white text-4xl md:text-5xl font-bold">Unsere Geschichte</h1>
+                <p class="text-white/70 text-lg mt-2 italic">Seit 2004 f&uuml;r Menschen in der Ortenau</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         EINLEITUNG
+         ============================================ -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_380px] gap-12 items-start">
+            <div>
+                <p class="text-rot text-sm font-bold tracking-[0.2em] uppercase mb-3">
+                    &Uuml;ber uns
+                </p>
+                <h2 class="text-blau text-3xl md:text-4xl font-bold mb-6">
+                    Willkommen bei den Seniorendiensten Appenweier &amp; Urloffen gGmbH
+                </h2>
+                <div class="text-gray-600 leading-relaxed text-lg space-y-4">
+                    <p>Die Seniorendienste Appenweier &amp; Urloffen gGmbH ist seit ihrer Gr&uuml;ndung im Jahr 2004 ein wichtiger Anbieter eines zwischenzeitlich vollumf&auml;nglichen Altenhilfeangebots im Quartier Appenweier-Urloffen-Nesselried.</p>
+                    <p>Mit der Gr&uuml;ndung der Seelsorgeeinheiten ist die Kirchengemeinde Appenweier&nbsp;-&nbsp;Durbach alleiniger Gesellschafter. Seit der Gr&uuml;ndung hat sich das Leistungsspektrum stetig erweitert und umfasst neben der klassischen station&auml;ren Pflege und Kurzzeitpflege im Altenpflegeheim St.&nbsp;Martin auch zahlreiche ambulantisierte und vorstation&auml;re Angebote.</p>
+                    <p>Durch die Vernetzung von niederschwelligen, ambulanten, teilstation&auml;ren und station&auml;ren Angeboten entstehen vielf&auml;ltige Synergien. So kann jedem Bewohner ein passendes Angebot f&uuml;r seine individuellen W&uuml;nsche zur Verf&uuml;gung gestellt werden.</p>
+                </div>
+            </div>
+            <!-- Polaroid-Bild rechts -->
+            <div class="relative">
+                <div class="bg-white p-3 shadow-lg rounded-sm rotate-1">
+                    <!-- Platzhalter: ersetze mit <img src="../img/..." ...> -->
+                    <div class="w-full aspect-[4/3] bg-gray-100 flex items-center justify-center text-gray-400">
+                        <span class="text-sm">Bild: Geb&auml;ude / Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ZEITSTRAHL
+         ============================================ -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 mb-16">
+            <p class="text-rot text-sm font-bold tracking-[0.2em] uppercase mb-3">
+                Chronik
+            </p>
+            <h2 class="text-blau text-3xl md:text-4xl font-bold">
+                Meilensteine unserer Entwicklung
+            </h2>
+        </div>
+
+        <!-- Timeline (volle Breite, kein max-w) -->
+        <div class="relative">
+            <!-- Pfeil links -->
+            <button id="btnPrev"
+                class="absolute left-4 top-[44px] z-20
+                       w-10 h-10 flex items-center justify-center
+                       bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full
+                       text-blau hover:bg-blau hover:text-white hover:border-blau
+                       transition-all duration-200 cursor-pointer shadow-sm"
+                aria-label="Vorheriger Meilenstein">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <!-- Pfeil rechts -->
+            <button id="btnNext"
+                class="absolute right-4 top-[44px] z-20
+                       w-10 h-10 flex items-center justify-center
+                       bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full
+                       text-blau hover:bg-blau hover:text-white hover:border-blau
+                       transition-all duration-200 cursor-pointer shadow-sm"
+                aria-label="Naechster Meilenstein">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <div class="timeline-scroll overflow-x-auto" id="timelineScroll">
+                <div class="relative" style="min-width: max-content;">
+                    <div id="yearLabels" class="flex items-end px-16" style="padding-bottom: 16px;"></div>
+                    <div class="relative h-[14px] flex items-center">
+                        <div class="absolute top-1/2 -translate-y-1/2 h-[2px] bg-blau-dunkel" style="left: 0; right: 0;"></div>
+                        <div id="dotContainer" class="flex items-center px-16 relative z-10"></div>
+                    </div>
+                    <div id="cardArea" class="flex px-16" style="padding-top: 0;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TEAL-BLOCK — Philosophie
+         ============================================ -->
+    <section class="bg-blau py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-white/60 text-sm font-bold tracking-[0.2em] uppercase mb-3">
+                Unsere Philosophie
+            </p>
+            <h2 class="text-white text-3xl md:text-4xl font-bold mb-12">
+                Was uns antreibt
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-blau-dunkel rounded-xl p-8">
+                    <h3 class="text-white text-xl font-bold mb-4">Vernetzte Versorgung</h3>
+                    <p class="text-white/70 leading-relaxed">
+                        Durch die Vernetzung von ambulanten, teilstation&auml;ren und station&auml;ren Angeboten kann schnell und gezielt auf &Auml;nderungen des Bedarfs eingegangen werden &mdash; ein zukunftsweisendes Modell f&uuml;r hilfesuchende Menschen und deren Angeh&ouml;rige.
+                    </p>
+                </div>
+                <div class="bg-blau-dunkel rounded-xl p-8">
+                    <h3 class="text-white text-xl font-bold mb-4">Beratung &amp; Begleitung</h3>
+                    <p class="text-white/70 leading-relaxed">
+                        Unsere Beratungsstelle f&uuml;r pflegende Angeh&ouml;rige bietet fachkompetente Begleitung. Der Schulungs- und Informationsbedarf ist enorm &mdash; gerade das Leistungsrecht ist f&uuml;r Laien schwer zu durchschauen.
+                    </p>
+                </div>
+                <div class="bg-blau-dunkel rounded-xl p-8">
+                    <h3 class="text-white text-xl font-bold mb-4">Wertsch&auml;tzung &amp; Qualit&auml;t</h3>
+                    <p class="text-white/70 leading-relaxed">
+                        Qualitativ hochwertige Arbeit braucht gut ausgebildetes Fachpersonal. Wir pflegen einen wertsch&auml;tzenden Umgang und erm&ouml;glichen Weiterqualifikationen. Besonders hervorzuheben: Im gesamten Unternehmen wurde noch keine einzige Stunde Leiharbeit geleistet.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         KONTAKT-BOX
+         ============================================ -->
+    <section class="py-20 px-6">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-12 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                Sie haben Fragen zu unseren Leistungen?
+            </h2>
+            <p class="text-gray-500 mb-6">Melden Sie sich gerne unter der Nummer:</p>
+            <a href="tel:+4978059152-0" class="text-rot text-3xl font-bold hover:underline">
+                07805 / 9152 - 0
+            </a>
+            <p class="text-gray-400 italic mt-4">Wir beraten Sie pers&ouml;nlich und unverbindlich.</p>
+            <div class="mt-8 flex justify-end">
+                <img src="../img/logo.png" alt="Seniorendienste Logo" class="h-16 max-w-none">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="bg-gray-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <a href="#" class="text-gray-500 hover:text-rot transition-colors" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-rot transition-colors" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="flex items-center gap-8 text-base text-gray-700">
+                <a href="mailto:Info@SD-AppUrl.de" class="hover:text-rot">Info@SD-AppUrl.de</a>
+                <a href="tel:+4978059152-0" class="hover:text-rot">07805 / 9152 - 0</a>
+            </div>
+        </div>
+        <div class="border-t border-gray-50 max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-sm text-gray-400">
+            <div class="flex gap-6">
+                <a href="/impressum" class="hover:text-rot">Impressum</a>
+                <a href="/datenschutz" class="hover:text-rot">Datenschutz</a>
+            </div>
+            <p>&copy; Seniorendienste Appenweier &amp; Urloffen gGmbH</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+    // Mobile Nav Toggle
+    var toggleBtn = document.getElementById('toggle-button');
+    var navMenu = document.getElementById('nav-menu');
+    if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('flex');
+        });
+    }
+
+    // ============================================
+    // MEILENSTEIN-DATEN
+    // Neue Eintr\u00E4ge einfach als Objekt hinzuf\u00FCgen.
+    // F\u00FCr Bilder: image: '../img/dateiname.jpg'
+    // ============================================
+    var milestones = [
+        {
+            year: '2004',
+            title: 'Gr\u00FCndung der gGmbH',
+            text: 'Die Seniorendienste Appenweier & Urloffen gGmbH wird gegr\u00FCndet. Die Kirchengemeinde Appenweier\u2009-\u2009Durbach ist alleiniger Gesellschafter. Ziel ist ein vollumf\u00E4ngliches Altenhilfeangebot im Quartier Appenweier-Urloffen-Nesselried.',
+            image: null,
+            imageAlt: ''
+        },
+        {
+            year: '2017',
+            title: 'Tagespflege w\u00E4chst auf 18 Pl\u00E4tze',
+            text: 'Durch den Erwerb und die Erweiterung des Pfarrhauses in Urloffen kann die Tagespflege von 12 auf 18 Pl\u00E4tze in modernen R\u00E4umlichkeiten ausgebaut werden.',
+            image: null,
+            imageAlt: ''
+        },
+        {
+            year: '2018',
+            title: 'WG Lebenswert er\u00F6ffnet',
+            text: 'Im 2.\u00A0OG des Pfarrhauses in Urloffen wird die ambulant betreute Wohngemeinschaft \u201ELebenswert\u201C f\u00FCr 8 Bewohner eingerichtet \u2014 eine familien\u00E4hnliche Alternative zum station\u00E4ren Setting.',
+            image: null,
+            imageAlt: ''
+        }
+    ];
+
+    var DOT_SPACING = 280;
+    var CARD_MAX_W = 380;
+
+    // ============================================
+    // TIMELINE AUFBAUEN
+    // ============================================
+    var yearLabelsEl = document.getElementById('yearLabels');
+    var dotContainerEl = document.getElementById('dotContainer');
+    var cardAreaEl = document.getElementById('cardArea');
+    var scrollContainer = document.getElementById('timelineScroll');
+    var activeIndex = 0;
+
+    for (var idx = 0; idx < milestones.length; idx++) {
+        (function(i) {
+            var m = milestones[i];
+
+            // Jahreszahl
+            var yearEl = document.createElement('div');
+            yearEl.className = 'year-item flex-shrink-0 text-center';
+            yearEl.style.width = DOT_SPACING + 'px';
+            var yearSpan = document.createElement('span');
+            yearSpan.className = 'year-text text-sm font-bold transition-all duration-300 text-gray-400 select-none cursor-pointer hover:text-blau';
+            yearSpan.textContent = m.year;
+            yearSpan.addEventListener('click', function() { showMilestone(i); });
+            yearEl.appendChild(yearSpan);
+            yearLabelsEl.appendChild(yearEl);
+
+            // Dot
+            var dotWrapper = document.createElement('div');
+            dotWrapper.className = 'dot-item flex-shrink-0 flex justify-center';
+            dotWrapper.style.width = DOT_SPACING + 'px';
+            var dotBtn = document.createElement('button');
+            dotBtn.className = 'dot-btn relative w-[14px] h-[14px] rounded-full border-[2.5px] border-blau-dunkel bg-white transition-all duration-300 cursor-pointer hover:scale-150';
+            dotBtn.addEventListener('click', function() { showMilestone(i); });
+            dotWrapper.appendChild(dotBtn);
+            dotContainerEl.appendChild(dotWrapper);
+
+            // Kartenbereich
+            var cardSlot = document.createElement('div');
+            cardSlot.className = 'card-slot flex-shrink-0 flex flex-col items-center';
+            cardSlot.style.width = DOT_SPACING + 'px';
+
+            var connector = document.createElement('div');
+            connector.className = 'connector-line bg-blau-dunkel mx-auto';
+            cardSlot.appendChild(connector);
+
+            var arrow = document.createElement('div');
+            arrow.className = 'card-arrow bg-white border-t-2 border-l-2 border-blau opacity-0 transition-opacity duration-300';
+            cardSlot.appendChild(arrow);
+
+            var card = document.createElement('div');
+            card.className = 'milestone-card bg-white border-2 border-blau rounded-lg p-6 text-left w-full';
+            card.style.maxWidth = CARD_MAX_W + 'px';
+
+            var cardTitle = document.createElement('h3');
+            cardTitle.className = 'text-blau-dunkel text-lg font-bold mb-3';
+            cardTitle.textContent = m.title;
+            card.appendChild(cardTitle);
+
+            var cardText = document.createElement('p');
+            cardText.className = 'text-gray-600 text-sm leading-relaxed';
+            cardText.textContent = m.text;
+            card.appendChild(cardText);
+
+            cardSlot.appendChild(card);
+            cardAreaEl.appendChild(cardSlot);
+        })(idx);
+    }
+
+    // ============================================
+    // MEILENSTEIN ANZEIGEN
+    // ============================================
+    function showMilestone(index) {
+        activeIndex = index;
+
+        var yearTexts = document.querySelectorAll('.year-text');
+        var dots = document.querySelectorAll('.dot-btn');
+        var connectors = document.querySelectorAll('.connector-line');
+        var arrows = document.querySelectorAll('.card-arrow');
+        var cards = document.querySelectorAll('.milestone-card');
+
+        for (var i = 0; i < milestones.length; i++) {
+            if (i === index) {
+                yearTexts[i].classList.remove('text-gray-400', 'text-sm');
+                yearTexts[i].classList.add('text-blau-dunkel', 'text-base');
+                dots[i].classList.remove('bg-blau', 'w-[14px]', 'h-[14px]');
+                dots[i].classList.add('bg-white', 'w-[18px]', 'h-[18px]', 'shadow-md');
+                connectors[i].classList.add('active');
+                arrows[i].classList.remove('opacity-0');
+                arrows[i].classList.add('opacity-100');
+                cards[i].classList.add('active');
+            } else {
+                yearTexts[i].classList.add('text-gray-400', 'text-sm');
+                yearTexts[i].classList.remove('text-blau-dunkel', 'text-base');
+                dots[i].classList.remove('bg-white', 'w-[18px]', 'h-[18px]', 'shadow-md');
+                if (i < index) {
+                    dots[i].classList.add('bg-blau', 'w-[14px]', 'h-[14px]');
+                } else {
+                    dots[i].classList.remove('bg-blau');
+                    dots[i].classList.add('w-[14px]', 'h-[14px]');
+                }
+                connectors[i].classList.remove('active');
+                arrows[i].classList.add('opacity-0');
+                arrows[i].classList.remove('opacity-100');
+                cards[i].classList.remove('active');
+            }
+        }
+
+        // Scroll zum aktiven Punkt
+        var activeDot = document.querySelectorAll('.dot-item')[index];
+        var scrollLeft = activeDot.offsetLeft - scrollContainer.clientWidth / 2 + DOT_SPACING / 2;
+        scrollContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+
+        // Pfeil-Buttons
+        var prev = document.getElementById('btnPrev');
+        var next = document.getElementById('btnNext');
+        prev.style.opacity = (index === 0) ? '0.3' : '1';
+        prev.style.pointerEvents = (index === 0) ? 'none' : 'auto';
+        next.style.opacity = (index === milestones.length - 1) ? '0.3' : '1';
+        next.style.pointerEvents = (index === milestones.length - 1) ? 'none' : 'auto';
+    }
+
+    // Pfeil-Buttons
+    document.getElementById('btnPrev').addEventListener('click', function() {
+        if (activeIndex > 0) showMilestone(activeIndex - 1);
+    });
+    document.getElementById('btnNext').addEventListener('click', function() {
+        if (activeIndex < milestones.length - 1) showMilestone(activeIndex + 1);
+    });
+
+    // Pfeiltasten
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft' && activeIndex > 0) showMilestone(activeIndex - 1);
+        if (e.key === 'ArrowRight' && activeIndex < milestones.length - 1) showMilestone(activeIndex + 1);
+    });
+
+    // Touch-Swipe
+    var touchStartX = 0;
+    scrollContainer.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    scrollContainer.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].screenX;
+        if (diff > 50 && activeIndex < milestones.length - 1) showMilestone(activeIndex + 1);
+        if (diff < -50 && activeIndex > 0) showMilestone(activeIndex - 1);
+    }, { passive: true });
+
+    // Start
+    showMilestone(0);
+    </script>
+
+</body>
+</html>
