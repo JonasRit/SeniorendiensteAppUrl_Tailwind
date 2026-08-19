@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS seniorendienst;
-USE seniorendienst;
-
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
