@@ -1,4 +1,14 @@
 services:
+  web:
+    build: .
+    container_name: webseite-seniorendienst-web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+ 
   db:
     image: mysql:8
     container_name: webseite-seniorendienst-mysql-db
@@ -10,6 +20,6 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./database:/docker-entrypoint-initdb.d
-
+ 
 volumes:
   db_data:
